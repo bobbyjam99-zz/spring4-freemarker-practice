@@ -7,20 +7,67 @@
   <version>1.0-SNAPSHOT</version>
   <name>spring4-freemarker-practice Maven Webapp</name>
   <url>http://maven.apache.org</url>
+
+  <properties>
+    <spring.version>4.0.1.RELEASE</spring.version>
+    <freemarker.version>2.3.20</freemarker.version>
+    <lombok.version>1.12.4</lombok.version>
+    <junit.version>4.11</junit.version>
+  </properties>
+
   <dependencies>
     <dependency>
       <groupId>org.freemarker</groupId>
       <artifactId>freemarker</artifactId>
-      <version>2.3.20</version>
+      <version>${freemarker.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context-support</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-web</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>${lombok.version}</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
+
   <build>
     <finalName>spring4-freemarker-practice</finalName>
+    <pluginManagement>
+    <plugins>
+        <plugin>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+                <source>1.7</source>
+                <target>1.7</target>
+                <encoding>UTF-8</encoding>
+            </configuration>
+        </plugin>
+    </plugins>
+    </pluginManagement>
   </build>
+
 </project>
