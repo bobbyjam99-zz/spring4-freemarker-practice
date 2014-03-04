@@ -25,16 +25,30 @@ public class UserController {
     }
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public String index(@ModelAttribute("model")
+    public String index() {
+
+        return "index";
+    }
+
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    public String showUserList(@ModelAttribute("model")
     ModelMap model) {
 
         model.addAttribute("userList", userList);
-        return "index";
+        return "list";
+    }
+
+    @RequestMapping(value = "initadd", method = RequestMethod.GET)
+    public String init2add(@ModelAttribute("user")
+    User user) {
+
+        return "add";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String add(@ModelAttribute("user")
-    User user) {
+    User user, @ModelAttribute("model")
+    ModelMap model) {
 
         if (user != null && user.getFirstname() != null && user.getLastname() != null
             && !user.getFirstname().isEmpty() && !user.getLastname().isEmpty()) {
@@ -43,8 +57,9 @@ public class UserController {
                 userList.add(user);
             }
 
+            model.addAttribute("userList", userList);
         }
 
-        return "redirect:index.do";
+        return "list";
     }
 }
