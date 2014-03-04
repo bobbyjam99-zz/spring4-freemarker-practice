@@ -9,7 +9,7 @@
     <h2>FreeMarker Spring MVC Practice</h2>
 </div>
 
-<form name="user" class="form-horizontal" action="add.html" method="post">
+<form name="user" class="form-horizontal" action="add.do" method="post">
     <div class="form-group">
         <label class="col-sm-2 control-label">Add User</label>
     </div>

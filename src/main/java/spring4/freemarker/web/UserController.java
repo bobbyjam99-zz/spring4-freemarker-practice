@@ -1,14 +1,15 @@
 package spring4.freemarker.web;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import spring4.freemarker.model.User;
 
-import java.util.ArrayList;
-import java.util.List;
+import spring4.freemarker.model.User;
 
 @Controller
 public class UserController {
@@ -24,17 +25,19 @@ public class UserController {
     }
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public String index(@ModelAttribute("model") ModelMap model) {
+    public String index(@ModelAttribute("model")
+    ModelMap model) {
+
         model.addAttribute("userList", userList);
         return "index";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String add(@ModelAttribute("user") User user) {
+    public String add(@ModelAttribute("user")
+    User user) {
 
-        if (user != null && user.getFirstname() != null
-                && user.getLastname() != null && !user.getFirstname().isEmpty()
-                && !user.getLastname().isEmpty()) {
+        if (user != null && user.getFirstname() != null && user.getLastname() != null
+            && !user.getFirstname().isEmpty() && !user.getLastname().isEmpty()) {
 
             synchronized (userList) {
                 userList.add(user);
@@ -42,6 +45,6 @@ public class UserController {
 
         }
 
-        return "redirect:index.html";
+        return "redirect:index.do";
     }
 }
