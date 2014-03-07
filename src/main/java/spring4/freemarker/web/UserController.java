@@ -1,6 +1,7 @@
 package spring4.freemarker.web;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -17,11 +18,17 @@ public class UserController {
     private final static List<User> userList = new ArrayList<>();
 
     static {
-        userList.add(new User("Kanako", "Momota"));
-        userList.add(new User("Shiori", "Tamai"));
-        userList.add(new User("Ayaka", "Sasaki"));
-        userList.add(new User("Momoka", "Ariyasu"));
-        userList.add(new User("Reni", "Takagi"));
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(1994, 7, 12);
+        userList.add(new User("Kanako", "Momota", calendar.getTime()));
+        calendar.set(1995, 6, 4);
+        userList.add(new User("Shiori", "Tamai", calendar.getTime()));
+        calendar.set(1996, 6, 11);
+        userList.add(new User("Ayaka", "Sasaki", calendar.getTime()));
+        calendar.set(1995, 3, 15);
+        userList.add(new User("Momoka", "Ariyasu", calendar.getTime()));
+        calendar.set(1993, 6, 21);
+        userList.add(new User("Reni", "Takagi", calendar.getTime()));
     }
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)

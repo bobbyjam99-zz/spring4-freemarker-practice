@@ -15,6 +15,7 @@
         <tr>
             <th>Firstname</th>
             <th>Lastname</th>
+            <th>BirthDate</th>
         </tr>
         </thead>
         <tbody>
@@ -22,6 +23,7 @@
         <tr>
             <td>${user.firstname}</td>
             <td>${user.lastname}</td>
+            <td>${user.birthDate?string("yyyy/MM/dd")}</td>
         </tr>
         </#list>
         </tbody>
